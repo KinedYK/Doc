@@ -57,3 +57,8 @@
 ```
 1. 禁止浮层后的页面滚动，在最外层<view catchtouthmove = 'true'>可解决。但是在wechatDevelope工具的模拟器上不生效，真机有效。
 ```
+
+```
+2. 小程序 wx.navigateTo  跳转传参数时， json解析数据报如下错误 lifeCycleMethod onLoad function SyntaxError: Unexpected end of JSON input
+一般获取的json数据先转换成string字符，如：JSON.stringify(json)，然后用encodeURIComponent 编码，如encodeURIComponent(string), 就可以传参过去了，到接收页 ，先 decodeURIComponent(data),然后在 JSON.parse() 取得json数据 赋值！
+```
