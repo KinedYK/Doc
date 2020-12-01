@@ -62,3 +62,8 @@
 2. 小程序 wx.navigateTo  跳转传参数时， json解析数据报如下错误 lifeCycleMethod onLoad function SyntaxError: Unexpected end of JSON input
 一般获取的json数据先转换成string字符，如：JSON.stringify(json)，然后用encodeURIComponent 编码，如encodeURIComponent(string), 就可以传参过去了，到接收页 ，先 decodeURIComponent(data),然后在 JSON.parse() 取得json数据 赋值！
 ```
+
+```
+3. background-clip: text; iOS无法显示文字
+   参考：https://stackoverflow.com/questions/44963978/safari-on-ios-not-displaying-text-when-using-background-clip-and-text-fill-color/47819393
+```
