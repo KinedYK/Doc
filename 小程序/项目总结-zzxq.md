@@ -67,3 +67,18 @@
 3. background-clip: text; iOS无法显示文字
    参考：https://stackoverflow.com/questions/44963978/safari-on-ios-not-displaying-text-when-using-background-clip-and-text-fill-color/47819393
 ```
+
+```
+4. 小程序红包 paySign 生成方法，可以由前端生成也可以由后端生成。微信文档示例有问题，具体生成方法参照文档最下面
+https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=18_3&index=4
+
+paySign生成方法
+  字段说明：paySign 字段是对本次发起JSAPI 的行为进行鉴权，只有通过了paySign 鉴权，才能继续对package 鉴权并调起红包的收和拆。
+
+  生成规则：参与paySign 签名的字段包括：appId、timeStamp、nonceStr、package 。这里signType 并不参与签名。
+
+  1 . 对所有待签名参数按照字段名的 ASCII码从小到大排序（字典序）后，使用 URL 键 值对的格式（即key1=value1&key2=value2…）拼接成字符串string1。这里需要注意的是所有参数名均为驼峰形式
+  2 . 在string1最后拼接上key=商户支付密钥得到stringSignTemp字符串
+  3 . 对 stringSignTemp 作MD5签名算法，字段名和字段值都采用原始值（package需要进行urlencode再进行加密），最后得到的字符串不用转成大写， 具体签名算法为 paySign =MD5(stringSignTemp)
+```
+
