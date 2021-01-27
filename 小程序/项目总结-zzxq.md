@@ -82,3 +82,9 @@ paySign生成方法
   3 . 对 stringSignTemp 作MD5签名算法，字段名和字段值都采用原始值（package需要进行urlencode再进行加密），最后得到的字符串不用转成大写， 具体签名算法为 paySign =MD5(stringSignTemp)
 ```
 
+```
+5. 小程序长按事件：IOS端 长按事件(bindLongTap)结束后会触发点击事件(bindTap)。可通过判断flag标记解决冲突。
+   点击事件触发顺序：touchstart → touchend → tap 
+   长按事件触发顺序：touchstart → longtap → touchend → tap
+```
+
